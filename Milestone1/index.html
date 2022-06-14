@@ -54,7 +54,7 @@
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1">
-                            <div class="chat-list-card py-3 " v-for="user in mainArray">
+                            <div class="chat-list-card py-3 "  v-for="user in mainArray" :class="user.visible ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
                                     <div>

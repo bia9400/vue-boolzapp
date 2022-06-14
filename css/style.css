@@ -73,8 +73,11 @@ img{
 }
 .chat-list-card{
     position: relative;
-    background-color: #e9ebeb;
     
+    
+}
+.card-grey-class{
+    background-color: #e9ebeb!important; 
 }
 .rigth-avatar-time{
     position: absolute;
