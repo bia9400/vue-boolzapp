@@ -25,6 +25,7 @@ img{
 .card-left{
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
 }
 .my-avatar{
     background-color: #eaeaea;
@@ -34,6 +35,7 @@ img{
 }
 .my-avatar i{
     color: #b1b1b1;
+    padding: 0 .5rem;
 }
 .left-avatar,.rigth-avatar{
     display: flex;
