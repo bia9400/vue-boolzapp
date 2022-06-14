@@ -54,7 +54,7 @@
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1 ">
-                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" :class="user.visible ? 'card-grey-class' : '' ">
+                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(index)" :class="user.visible ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
                                     <div>
@@ -90,16 +90,13 @@
                             </div>
                         </div>
                         <div class="main-chat flex-grow-1">
-                            <div class="container px-5">
-                                <div v-for="messagex in mainArray[0].messages">
-                                    <div v-if="messagex.status==`sent`" class="sent-message py-3"><h5 class="ps-2">{{messagex.message}}</h5></div>
-                                    <div v-if="messagex.status==`received`" class="receveid-message py-3"><h5 class="ps-2">{{messagex.message}}</h5></div>
-                                </div>
+                            <div class="container">
+
                             </div>
                         </div>
-                        <div class="search-bar d-flex align-items-center py-3 ">
+                        <div class="search-bar d-flex align-items-center py-3">
                             <i class="fa-solid fa-face-smile"></i>
-                            <input style="border: 0; width: 100%;" class="ps-5 "
+                            <input style="border: 0; width: 100%;" class="ps-5"
                                 placeholder="Scrivi un messaggio" type="text">
                                 <i class="fa-solid fa-microphone"></i>
                         </div>

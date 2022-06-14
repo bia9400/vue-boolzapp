@@ -95,3 +95,17 @@ img{
     
     color: #6b7376;
 }
+.sent-message{
+    width: 60%;
+    background-color: #d5f9ba;
+    margin-left: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.receveid-message{
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+
+}

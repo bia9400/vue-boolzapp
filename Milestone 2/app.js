@@ -212,6 +212,13 @@ new Vue({
     ]
   },
   methods: {
-    
+    changeVisibility(index) {
+      for(let i=0; i<this.mainArray.length;i++){
+        this.mainArray[i].visible=false
+      }
+
+      this.mainArray[index].visible = true
+      console.log(this.mainArray);
+    }
   },
 })
