@@ -1,0 +1,42 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    width: 50px;
+    border-radius: 50%;
+}
+.color-green-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #009688;
+    height: 150px;
+}
+.fix-container-heigth{
+    min-width: 1200px;
+    position: relative;
+    height: 90vh;
+    background-color: white;
+}
+.card-left{
+    display: flex;
+    flex-direction: column;
+}
+.my-avatar{
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.my-avatar i{
+    color: #b1b1b1;
+}
+.left-avatar,.rigth-avatar{
+    display: flex;
+    align-items: center;
+    
+}

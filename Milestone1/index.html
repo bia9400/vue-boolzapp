@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js' integrity='sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ==' crossorigin='anonymous'></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.css' integrity='sha512-F5fn88UDJWd0T1GwpnIpbuFuSxCgXNnJhIihkiWeqYUyLt3oPUaYzL774VjL7eGj8ktZCZQS//txAxgokiz1Lw==' crossorigin='anonymous'/>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js' integrity='sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg==' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css'
+        integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ=='
+        crossorigin='anonymous' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js'
+        integrity='sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=='
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.css'
+        integrity='sha512-F5fn88UDJWd0T1GwpnIpbuFuSxCgXNnJhIihkiWeqYUyLt3oPUaYzL774VjL7eGj8ktZCZQS//txAxgokiz1Lw=='
+        crossorigin='anonymous' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'
+        integrity='sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=='
+        crossorigin='anonymous'></script>
     <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
 </head>
-<body>
-    <div id="app">
 
+<body>
+    <div class="color-green-bar"></div>
+    <div id="app">
+        <div class="container fix-container-heigth">
+            <div class="row">
+                <div class="col-3  ">
+                    <div class="card-left">
+                        <div class="my-avatar">
+                            <div class="left-avatar">
+                                <img src="../img/avatar_io.jpg" alt="">
+                                <span>Sofia</span>
+                            </div>
+                            <div class="rigth-avatar">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="alert-notifica"></div>
+                        <div class="search-bar"></div>
+                        <div class="chat-list"></div>
+
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="my-avatar">
+                        <div class="left-avatar">
+                            <img src="../img/avatar_1.jpg" alt="">
+                            <span>Michele</span>
+                        </div>
+                        <div class="rigth-avatar">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
