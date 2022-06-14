@@ -25,7 +25,7 @@
     <div class="color-green-bar"></div>
     <div id="app">
         <div class="container fix-container-heigth">
-            <div class="row">
+            <div class="row " >
                 <div class="col-4  ">
                     <div class="card-left">
                         <div class="my-avatar">
@@ -53,7 +53,7 @@
                             <input style="border: 0; width: 100%;" class="ps-5"
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
-                        <div class="chat-list d-flex flex-column flex-grow-1">
+                        <div class="chat-list d-flex flex-column flex-grow-1 ">
                             <div class="chat-list-card py-3 "  v-for="user in mainArray" :class="user.visible ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
@@ -90,7 +90,9 @@
                             </div>
                         </div>
                         <div class="main-chat flex-grow-1">
-
+                            <div class="container">
+                                
+                            </div>
                         </div>
                         <div class="search-bar d-flex align-items-center py-3">
                             <i class="fa-solid fa-face-smile"></i>
