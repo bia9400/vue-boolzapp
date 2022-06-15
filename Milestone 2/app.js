@@ -209,16 +209,34 @@ new Vue({
           },
         ],
       }
-    ]
+    ],
+    currentUser:{
+      name: "Michele",
+      avatar: "../img/avatar_1.jpg",
+      visible: true,
+      messages: [
+        {
+          date: "10/01/2020 15:30:55",
+          message: "Hai portato a spasso il cane?",
+          status: "sent",
+        },
+        {
+          date: "10/01/2020 15:50:00",
+          message: "Ricordati di stendere i panni",
+          status: "sent",
+        },
+        {
+          date: "10/01/2020 16:15:22",
+          message: "Tutto fatto!",
+          status: "received",
+        },
+      ],
+    },
   },
   methods: {
-    changeVisibility(index) {
-      for(let i=0; i<this.mainArray.length;i++){
-        this.mainArray[i].visible=false
-      }
-
-      this.mainArray[index].visible = true
-      console.log(this.mainArray);
+    changeVisibility(user) {
+      this.currentUser=user
+      console.log(this.currentUser);
     }
   },
 })
