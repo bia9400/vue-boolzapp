@@ -52,10 +52,10 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <input style="border: 0; width: 100%;" class="ps-5" id="searchBar"
                                 placeholder="Cerca o inizia una nuova chat" type="text" :value="filter"
-                                @input="event => filter = event.target.value" @keyup="filterFunction()">
+                                @input="event => filter = event.target.value" @keyup="filterFunction()" >
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
-                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user)" :class="currentUser===user ? 'card-grey-class' : '' ">
+                            <div class="chat-list-card py-3 " v-if="user.visible" v-for="(user,index) in mainArray" @click="changeVisibility(user)" :class="currentUser===user ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
                                     <div>
@@ -67,6 +67,7 @@
                                     12:00
                                 </div>
                             </div>
+                            
                         </div>
 
                     </div>

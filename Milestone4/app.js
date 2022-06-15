@@ -24,7 +24,7 @@ const contatti = [
   {
     name: "Fabio",
     avatar: "../img/avatar_2.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "20/03/2020 16:30:00",
@@ -46,7 +46,7 @@ const contatti = [
   {
     name: "Samuele",
     avatar: "../img/avatar_3.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "28/03/2020 10:10:40",
@@ -68,7 +68,7 @@ const contatti = [
   {
     name: "Alessandro B.",
     avatar: "../img/avatar_4.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -85,7 +85,7 @@ const contatti = [
   {
     name: "Alessandro L.",
     avatar: "../img/avatar_5.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -102,7 +102,7 @@ const contatti = [
   {
     name: "Claudia",
     avatar: "../img/avatar_6.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -124,7 +124,7 @@ const contatti = [
   {
     name: "Federico",
     avatar: "../img/avatar_7.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -141,7 +141,7 @@ const contatti = [
   {
     name: "Davide",
     avatar: "../img/avatar_8.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -163,7 +163,7 @@ const contatti = [
   {
     name: "Davide",
     avatar: "../img/avatar_8.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -185,7 +185,7 @@ const contatti = [
   {
     name: "Davide",
     avatar: "../img/avatar_8.jpg",
-    visible: false,
+    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -213,7 +213,7 @@ new Vue({
     newMessage: "",
 
     mainArray: contatti,
-    FilteredArray: [],
+
     currentUser: {
       name: "Michele",
       avatar: "../img/avatar_1.jpg",
@@ -262,20 +262,19 @@ new Vue({
       }, 1000);
     },
     filterFunction() {
-      if(this.filter<=0){this.mainArray
-        return}
-      console.log(this.mainArray);
-      for (let i = 0; i < this.mainArray.length; i++) {
-        if (!this.mainArray[i].name.match(this.filter)) {
-          this.mainArray.splice(i, 1)
-        }
+      
+     for(let i=0;i<this.mainArray.length;i++){
+      if(this.mainArray[i].name.includes(this.filter)||this.mainArray[i].name.toLowerCase().includes(this.filter)){
+        this.mainArray[i].visible=true
       }
-
-      console.log(this.filter);
-      console.log(this.mainArray);
+      else{
+        this.mainArray[i].visible=false
+      }
+     }
     }
 
 
   },
+
 
 })
