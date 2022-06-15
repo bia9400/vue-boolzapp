@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css'
+        integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ=='
+        crossorigin='anonymous' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js'
+        integrity='sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ=='
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.css'
+        integrity='sha512-F5fn88UDJWd0T1GwpnIpbuFuSxCgXNnJhIihkiWeqYUyLt3oPUaYzL774VjL7eGj8ktZCZQS//txAxgokiz1Lw=='
+        crossorigin='anonymous' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'
+        integrity='sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=='
+        crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+</head>
+
+<body>
+    <div class="color-green-bar"></div>
+    <div id="app">
+        <div class="container fix-container-heigth">
+            <div class="row h-100 overflow-hidden" >
+                <div class="col-4  h-100">
+                    <div class="card-left h-100">
+                        <div class="my-avatar">
+                            <div class="left-avatar">
+                                <img src="../img/avatar_io.jpg" alt="">
+                                <span>Sofia</span>
+                            </div>
+                            <div class="rigth-avatar">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="alert-notifica">
+                            <div class="alert d-flex align-items-center py-2">
+                                <div class="bell-icon"><i class="fa-solid fa-bell-slash"></i></div>
+                                <div class="bell-text-description ">
+                                    <h5>Ricevi ntifiche di nuovi messaggi</h5>
+                                    <span style="text-decoration: underline;">Attiva Notifiche Desktop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-bar d-flex align-items-center ">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input style="border: 0; width: 100%;" class="ps-5"
+                                placeholder="Cerca o inizia una nuova chat" type="text">
+                        </div>
+                        <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
+                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user)" :class="user.visible ? 'card-grey-class' : '' ">
+                                <div class="left-avatar">
+                                    <img :src="user.avatar" alt="">
+                                    <div>
+                                        <div>{{user.name}}</div>
+                                        <span>Ultimo messaggio</span>
+                                    </div>
+                                </div>
+                                <div class="rigth-avatar-time">
+                                    12:00
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-8 h-100">
+                    <div class="card-right d-flex h-100">
+                        <div class="my-avatar">
+                            <div class="left-avatar">
+                                <img :src="currentUser.avatar" alt="">
+                                <div>
+                                    <div>{{currentUser.name}}</div>
+                                    <span>Ultimo accesso oggi alle 12:00</span>
+                                </div>
+                            </div>
+                            <div class="rigth-avatar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="main-chat flex-grow-1 overflow-auto">
+                            <div class="container px-5">
+                                <div v-for="myUser in currentUser.messages">
+                                    <div v-if="myUser.status==`sent`" class="sent-message py-3"><h5 class="ps-2">{{myUser.message}}</h5></div>
+                                    <div v-if="myUser.status==`received`" class="receveid-message py-3"><h5 class="ps-2">{{myUser.message}}</h5></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-bar d-flex align-items-center py-3">
+                            <i class="fa-solid fa-face-smile"></i>
+                            <input style="border: 0; width: 100%;" class="ps-5"
+                                placeholder="Scrivi un messaggio" type="text">
+                                <i class="fa-solid fa-microphone"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
