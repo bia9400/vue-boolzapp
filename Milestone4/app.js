@@ -1,4 +1,4 @@
-const contatti=[
+const contatti = [
   {
     name: "Michele",
     avatar: "../img/avatar_1.jpg",
@@ -209,10 +209,11 @@ const contatti=[
 new Vue({
   el: "#app",
   data: {
-    filter:"",
+    filter: "",
     newMessage: "",
+
     mainArray: contatti,
-    FilteredArray:[],
+    FilteredArray: [],
     currentUser: {
       name: "Michele",
       avatar: "../img/avatar_1.jpg",
@@ -260,12 +261,20 @@ new Vue({
         )
       }, 1000);
     },
-    filterFunction(){
-      let FilteredArray=this.mainArray.filter(valueToControl=>valueToControl.name.match(this.filter))
+    filterFunction() {
+      if(this.filter<=0){this.mainArray
+        return}
+      console.log(this.mainArray);
+      for (let i = 0; i < this.mainArray.length; i++) {
+        if (!this.mainArray[i].name.match(this.filter)) {
+          this.mainArray.splice(i, 1)
+        }
+      }
+
       console.log(this.filter);
-      console.log(FilteredArray);
+      console.log(this.mainArray);
     }
-    
+
 
   },
 
