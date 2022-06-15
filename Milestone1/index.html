@@ -73,8 +73,8 @@
 
 
                 </div>
-                <div class="col-8">
-                    <div class="card-right d-flex">
+                <div class="col-8 h-100">
+                    <div class="card-right d-flex h-100">
                         <div class="my-avatar">
                             <div class="left-avatar">
                                 <img src="../img/avatar_1.jpg" alt="">
@@ -89,12 +89,13 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
-                        <div class="main-chat flex-grow-1">
+                        <div class="main-chat flex-grow-1 overflow-auto">
                             <div class="container px-5">
                                 <div v-for="messagex in mainArray[0].messages">
                                     <div v-if="messagex.status==`sent`" class="sent-message py-3"><h5 class="ps-2">{{messagex.message}}</h5></div>
                                     <div v-if="messagex.status==`received`" class="receveid-message py-3"><h5 class="ps-2">{{messagex.message}}</h5></div>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="search-bar d-flex align-items-center py-3 ">
