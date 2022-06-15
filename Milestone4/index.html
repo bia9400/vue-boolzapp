@@ -50,11 +50,12 @@
                         </div>
                         <div class="search-bar d-flex align-items-center ">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input style="border: 0; width: 100%;" class="ps-5"
-                                placeholder="Cerca o inizia una nuova chat" type="text">
+                            <input style="border: 0; width: 100%;" class="ps-5" id="searchBar"
+                                placeholder="Cerca o inizia una nuova chat" type="text" :value="filter"
+                                @input="event => filter = event.target.value" @keyup="filterFunction()">
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
-                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user,index)" :class="currentUser===user ? 'card-grey-class' : '' " >
+                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user)" :class="currentUser===user ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
                                     <div>
@@ -99,8 +100,9 @@
                         </div>
                         <div class="search-bar d-flex align-items-center py-3">
                             <i class="fa-solid fa-face-smile"></i>
-                            <input style="border: 0; width: 100%;" class="ps-5"
-                                placeholder="Scrivi un messaggio" type="text">
+                            <input style="border: 0; width: 100%;"   @keyup.enter="insertMessage()"  class="ps-5"
+                                placeholder="Scrivi un messaggio" type="text"  :value="newMessage"
+                                @input="event => newMessage = event.target.value">
                                 <i class="fa-solid fa-microphone"></i>
                         </div>
 
