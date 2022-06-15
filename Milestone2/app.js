@@ -190,7 +190,7 @@ new Vue({
       {
         name: "Davide",
         avatar: "../img/avatar_8.jpg",
-        visible: false,
+        visible: true,
         messages: [
           {
             date: "10/01/2020 15:30:55",
@@ -210,7 +210,7 @@ new Vue({
         ],
       }
     ],
-    currentUser:{
+    currentUser: {
       name: "Michele",
       avatar: "../img/avatar_1.jpg",
       visible: true,
@@ -234,9 +234,13 @@ new Vue({
     },
   },
   methods: {
-    changeVisibility(user) {
-      this.currentUser=user
-      console.log(this.currentUser);
+    changeVisibility(user, numero) {
+
+      
+      
+      this.currentUser = user
+      
+      
     }
   },
 })

@@ -54,7 +54,7 @@
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
-                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user)" :class="user.visible ? 'card-grey-class' : '' ">
+                            <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" @click="changeVisibility(user,index)"  >
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
                                     <div>
