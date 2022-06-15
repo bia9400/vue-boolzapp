@@ -248,7 +248,17 @@ new Vue({
           status: "sent",
         }
       )
+      setTimeout(() => {
+        this.currentUser.messages.push(
+          {
+            date: "Da Gestire",
+            message: "Ok",
+            status: "received",
+          }
+        )
+      }, 1000);
     }
+
   },
-  
+
 })
