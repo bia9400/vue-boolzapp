@@ -50,7 +50,7 @@
                         </div>
                         <div class="search-bar d-flex align-items-center ">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input style="border: 0; width: 100%;" class="ps-5"
+                            <input style="border: 0; width: 100%;" class="ps-5" id="searchBar"
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
                         <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
@@ -99,8 +99,9 @@
                         </div>
                         <div class="search-bar d-flex align-items-center py-3">
                             <i class="fa-solid fa-face-smile"></i>
-                            <input style="border: 0; width: 100%;" class="ps-5"
-                                placeholder="Scrivi un messaggio" type="text">
+                            <input style="border: 0; width: 100%;"   @keyup.enter="insertMessage()"  class="ps-5"
+                                placeholder="Scrivi un messaggio" type="text"  :value="newMessage"
+                                @input="event => newMessage = event.target.value">
                                 <i class="fa-solid fa-microphone"></i>
                         </div>
 

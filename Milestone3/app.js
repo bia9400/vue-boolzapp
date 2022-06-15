@@ -3,6 +3,7 @@
 new Vue({
   el: "#app",
   data: {
+    newMessage: "",
     mainArray: [
       {
         name: "Michele",
@@ -210,7 +211,7 @@ new Vue({
         ],
       }
     ],
-    currentUser:{
+    currentUser: {
       name: "Michele",
       avatar: "../img/avatar_1.jpg",
       visible: true,
@@ -235,8 +236,19 @@ new Vue({
   },
   methods: {
     changeVisibility(user) {
-      this.currentUser=user
+      this.currentUser = user
       console.log(this.currentUser);
+    },
+    insertMessage() {
+      console.log(this.newMessage);
+      this.currentUser.messages.push(
+        {
+          date: "Da Gestire",
+          message: this.newMessage,
+          status: "sent",
+        }
+      )
     }
   },
+  
 })
