@@ -25,9 +25,9 @@
     <div class="color-green-bar"></div>
     <div id="app">
         <div class="container fix-container-heigth">
-            <div class="row " >
-                <div class="col-4  ">
-                    <div class="card-left">
+            <div class="row h-100 overflow-hidden" >
+                <div class="col-4 h-100 ">
+                    <div class="card-left h-100">
                         <div class="my-avatar">
                             <div class="left-avatar">
                                 <img src="../img/avatar_io.jpg" alt="">
@@ -53,7 +53,7 @@
                             <input style="border: 0; width: 100%;" class="ps-5"
                                 placeholder="Cerca o inizia una nuova chat" type="text">
                         </div>
-                        <div class="chat-list d-flex flex-column flex-grow-1 ">
+                        <div class="chat-list d-flex flex-column flex-grow-1 overflow-auto">
                             <div class="chat-list-card py-3 "   v-for="(user,index) in mainArray" :class="user.visible ? 'card-grey-class' : '' ">
                                 <div class="left-avatar">
                                     <img :src="user.avatar" alt="">
