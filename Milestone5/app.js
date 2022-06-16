@@ -213,7 +213,7 @@ new Vue({
   data: {
     filter: "",
     newMessage: "",
-    ultimoAccessoUtente:"01/10/2020 15:30:55",
+    ultimoAccessoUtente: "01/10/2020 15:30:55",
     mainArray: contatti,
 
     currentUser: {
@@ -242,10 +242,10 @@ new Vue({
   methods: {
     changeVisibility(user) {
       this.currentUser = user
-     
+
     },
     insertMessage() {
-      
+
       console.log(this.newMessage);
       this.currentUser.messages.push(
         {
@@ -255,44 +255,62 @@ new Vue({
         }
       )
       setTimeout(() => {
-        this.ultimoAccessoUtente=dayjs().format("DD/MM/YYYY HH:mm:ss")
-        console.log(this.ultimoAccessoUtente);
+        this.ultimoAccessoUtente[0] = dayjs().format("DD/MM/YYYY HH:mm:ss")
+        console.log(this.ultimoAccessoUtente[0]);
         this.currentUser.messages.push(
           {
-            date: this.ultimoAccessoUtente,
+            date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
             message: "ok",
             status: "received",
           }
         )
       }, 1000);
-      this.newMessage=""
-      
+      this.newMessage = ""
+      for (let i = 0; i < this.mainArray.length; i++) {
+        if (!this.mainArray.visible) { return }
+        else {
+          this.mainArray[i].messages.push({
+            date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
+            message: this.newMessage,
+            status: "sent",
+          })
+          this.mainArray[i].messages.push({
+            date: this.ultimoAccessoUtente,
+            message: "ok",
+            status: "received",
+          })
+        }
+      }
+
     },
     filterFunction() {
-      
-     for(let i=0;i<this.mainArray.length;i++){
-      if(this.mainArray[i].name.includes(this.filter)||this.mainArray[i].name.toLowerCase().includes(this.filter)){
-        this.mainArray[i].visible=true
+
+      for (let i = 0; i < this.mainArray.length; i++) {
+        if (this.mainArray[i].name.includes(this.filter) || this.mainArray[i].name.toLowerCase().includes(this.filter)) {
+          this.mainArray[i].visible = true
+        }
+        else {
+          this.mainArray[i].visible = false
+        }
       }
-      else{
-        this.mainArray[i].visible=false
-      }
-     }
     },
-    deleteThisMessage(index){
+    deleteThisMessage(index) {
       console.log(dayjs("20/10/20", "DD,MM,YY"));
-      this.currentUser.messages.splice(index,1)
+      this.currentUser.messages.splice(index, 1)
     },
-    setTime(data){
-      
-       return dayjs(data, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
+    setTime(data) {
+
+      return dayjs(data, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
     },
-    ultimoAccesso(){
-     
-      return `Ultimo accesso giorno ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("DD/MM") } alle ore ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("HH:mm") }`
+    ultimoAccesso() {
+
+      return `Ultimo accesso giorno ${dayjs(this.ultimoAccessoUtente, "DD/MM/YYYY HH:mm:ss").format("DD/MM")} alle ore ${dayjs(this.ultimoAccessoUtente, "DD/MM/YYYY HH:mm:ss").format("HH:mm")}`
     },
-    messageLength(i){
+    messageLength(i) {
       return (this.mainArray[i].messages.length)
+    },
+    setLeftClock(value,indice){
+      return dayjs(value.messages[this.messageLength(indice)-1].date,"DD/MM/YYYY HH:mm:ss").format("h:mm")
     }
 
 
@@ -300,3 +318,4 @@ new Vue({
 
 
 })
+
