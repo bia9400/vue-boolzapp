@@ -139,8 +139,8 @@ const contatti = [
     ],
   },
   {
-    name: "Davide",
-    avatar: "../img/avatar_8.jpg",
+    name: "Silvia",
+    avatar: "../img/avatar_io.jpg",
     visible: true,
     messages: [
       {
@@ -211,7 +211,7 @@ new Vue({
   data: {
     filter: "",
     newMessage: "",
-
+    
     mainArray: contatti,
 
     currentUser: {
@@ -243,6 +243,7 @@ new Vue({
       console.log(this.currentUser);
     },
     insertMessage() {
+      
       console.log(this.newMessage);
       this.currentUser.messages.push(
         {
@@ -255,11 +256,13 @@ new Vue({
         this.currentUser.messages.push(
           {
             date: "Da Gestire",
-            message: "Ok",
+            message: "ok",
             status: "received",
           }
         )
       }, 1000);
+      this.newMessage=""
+      
     },
     filterFunction() {
       
@@ -271,6 +274,10 @@ new Vue({
         this.mainArray[i].visible=false
       }
      }
+    },
+    deleteThisMessage(index){
+      
+      this.currentUser.messages.splice(index,1)
     }
 
 

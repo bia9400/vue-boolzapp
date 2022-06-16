@@ -78,10 +78,21 @@ img{
     background-color: #e9ebeb!important; 
 }
 .rigth-avatar-time{
+    ;
     position: absolute;
     top: 5px;
     right: 5px;
 }
+.drop-down-message{
+    color: black;
+    position: absolute;
+    top:50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 9999;
+
+}
+
 .main-chat{
     background-image: url("../img/mine.jpg");
 }
