@@ -72,11 +72,13 @@
                                         <img :src="user.avatar" alt="">
                                         <div>
                                             <div>{{ user.name }}</div>
-                                            <span>Ultimo messaggio</span>
+                                            <span >
+                                                {{user.messages[messageLength(index)-1].message}}
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="rigth-avatar-time">
-                                        12:00
+                                        {{user.messages[messageLength(index)-1].date}}
                                     </div>
                                 </div>
 

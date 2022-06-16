@@ -290,6 +290,9 @@ new Vue({
     ultimoAccesso(){
      
       return `Ultimo accesso giorno ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("DD/MM") } alle ore ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("HH:mm") }`
+    },
+    messageLength(i){
+      return (this.mainArray[i].messages.length)
     }
 
 
