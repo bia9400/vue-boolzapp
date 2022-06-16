@@ -1,3 +1,5 @@
+dayjs.extend(dayjs_plugin_customParseFormat);
+dayjs.extend(dayjs_plugin_relativeTime);
 const contatti = [
   {
     name: "Michele",
@@ -211,7 +213,7 @@ new Vue({
   data: {
     filter: "",
     newMessage: "",
-    
+    ultimoAccessoUtente:"",
     mainArray: contatti,
 
     currentUser: {
@@ -247,15 +249,16 @@ new Vue({
       console.log(this.newMessage);
       this.currentUser.messages.push(
         {
-          date: "Da Gestire",
+          date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
           message: this.newMessage,
           status: "sent",
         }
       )
       setTimeout(() => {
+        
         this.currentUser.messages.push(
           {
-            date: "Da Gestire",
+            date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
             message: "ok",
             status: "received",
           }
@@ -276,8 +279,16 @@ new Vue({
      }
     },
     deleteThisMessage(index){
-      
+      console.log(dayjs("20/10/20", "DD,MM,YY"));
       this.currentUser.messages.splice(index,1)
+    },
+    setTime(data){
+      
+       return dayjs(data, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
+    },
+    ultimoAccesso(){
+      this.ultimoAccessoUtente=dayjs(this.currentUser.message)
+      return this.ultimoAccessoUtente
     }
 
 

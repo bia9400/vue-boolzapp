@@ -3,6 +3,9 @@
     <html lang="en">
 
     <head>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/plugin/relativeTime.min.js' integrity='sha512-2Sb0BW+c8+/rhj243eqCrgws9FsZkMjH8ErZvcT4HR1HzLpHMfqsSgnJ+gMvH+/GJmu6wdNOu54n93XwbQDCKQ==' crossorigin='anonymous'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/plugin/customParseFormat.min.js' integrity='sha512-/rAikt6xZJcTqu7olN/2DFvqXDEUC31/yyFAYrSGi087R+j54QTWWRJxHtbN5NjppOxT3d1gk4ZwkPWX88W35w==' crossorigin='anonymous'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/dayjs.min.js' integrity='sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==' crossorigin='anonymous'></script>
         
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css'
             integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ=='
@@ -91,7 +94,7 @@
                                     <img :src="currentUser.avatar" alt="">
                                     <div>
                                         <div>{{ currentUser.name }}</div>
-                                        <span>Ultimo accesso oggi alle 12:00</span>
+                                        <span> {{ultimoAccesso()}} </span>
                                     </div>
                                 </div>
                                 <div class="rigth-avatar">
@@ -105,6 +108,9 @@
                                     <div v-for="(myUser,i) in currentUser.messages">
                                         <div v-if="myUser.status == `sent`" class="sent-message py-3 position-relative">
                                             <h5 class="ps-2">{{ myUser.message }}</h5>
+                                            <div class="rigth-chat-time">
+                                                {{setTime(myUser.date)}}
+                                            </div>
                                             <div class="dropdown drop-down-message">
                                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                   
@@ -119,6 +125,9 @@
                                         <div v-if="myUser.status == `received`"
                                             class="receveid-message py-3 position-relative">
                                             <h5 class="ps-2">{{ myUser.message }}</h5>
+                                            <div class="rigth-chat-time">
+                                                {{setTime(myUser.date)}}
+                                            </div>
                                             <div class="dropdown drop-down-message">
                                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                   
