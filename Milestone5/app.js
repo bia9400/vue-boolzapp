@@ -213,7 +213,7 @@ new Vue({
   data: {
     filter: "",
     newMessage: "",
-    ultimoAccessoUtente:"",
+    ultimoAccessoUtente:"01/10/2020 15:30:55",
     mainArray: contatti,
 
     currentUser: {
@@ -242,7 +242,7 @@ new Vue({
   methods: {
     changeVisibility(user) {
       this.currentUser = user
-      console.log(this.currentUser);
+     
     },
     insertMessage() {
       
@@ -255,10 +255,11 @@ new Vue({
         }
       )
       setTimeout(() => {
-        
+        this.ultimoAccessoUtente=dayjs().format("DD/MM/YYYY HH:mm:ss")
+        console.log(this.ultimoAccessoUtente);
         this.currentUser.messages.push(
           {
-            date: `${dayjs().format("DD/MM/YYYY HH:mm:ss")}`,
+            date: this.ultimoAccessoUtente,
             message: "ok",
             status: "received",
           }
@@ -287,8 +288,8 @@ new Vue({
        return dayjs(data, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
     },
     ultimoAccesso(){
-      this.ultimoAccessoUtente=dayjs(this.currentUser.message)
-      return this.ultimoAccessoUtente
+     
+      return `Ultimo accesso giorno ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("DD/MM") } alle ore ${dayjs(this.ultimoAccessoUtente,"DD/MM/YYYY HH:mm:ss").format("HH:mm") }`
     }
 
 
